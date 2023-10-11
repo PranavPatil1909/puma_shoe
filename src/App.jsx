@@ -5,15 +5,15 @@ import { Model } from './Shoe'
 export default function App() {
     return (
         <Canvas shadows camera={{ position: [0, 0, 0.4] }}>
-            <Environment preset="city" background blur={[1]} />
+            <Environment preset="sunset" background blur={[4]} />
             <Model />
             <ContactShadows
                 // far={0.8}
-                opacity={0.5}
-                // scale={10}
-                // blur={2}
-                // resolution={512}
-                position={[0, -0.1, 0]} color="#ffffff" />
+                opacity={0.3}
+                scale={2}
+                blur={1}
+                resolution={512}
+                position={[0, -0.11, 0]} color="#ffffff" />
             <OrbitControls  />
         </Canvas>
     )
