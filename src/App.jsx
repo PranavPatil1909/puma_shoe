@@ -5,7 +5,7 @@ import { Model } from './Shoe'
 export default function App() {
     return (
         <Canvas shadows camera={{ position: [-0.3, 0.2, -0.4], fov: 60 }}>
-            <Environment preset="sunset" background blur={[4]} />
+            <Environment preset="sunset" background  />
             {/* <Environment preset="city" /> */}
 
             <ambientLight intensity={0.7} />
