@@ -1,15 +1,28 @@
-import { useEffect, useState } from 'react'
+import { useRef, useState, useEffect } from "react"
+import { useFrame } from "@react-three/fiber"
+
 import { useGLTF } from '@react-three/drei'
 import { useControls } from 'leva'
 import { Color } from 'three'
 
 export function Model() {
     const [hovered, setHovered] = useState(false)
-    const { nodes, materials } = useGLTF('https://models-kosoku-3d.s3.ap-south-1.amazonaws.com/shoes.glb')
+    const { nodes, materials } = useGLTF('https://models-kosoku-3d.s3.ap-south-1.amazonaws.com/shoes_c.glb')
 
     useEffect(() => {
         document.body.style.cursor = hovered ? 'pointer' : 'auto'
     }, [hovered])
+    const ref = useRef()
+
+    useFrame((state) => {
+        const t = state.clock.getElapsedTime()
+        ref.current.rotation.set(
+            Math.cos(t / 4) / 8,
+            0,
+            0.3
+        )
+        ref.current.position.y = (0.04) + (Math.sin(t / 3)) / 80
+    })
 
     useControls('Shoe', () => {
         console.log('creating color pickers')
@@ -38,6 +51,8 @@ export function Model() {
 
     return (
         <group
+            ref={ref}
+
             dispose={null}
             onPointerOver={() => setHovered(true)}
             onPointerOut={() => setHovered(false)}
@@ -46,15 +61,15 @@ export function Model() {
                 document.getElementById('Shoe.' + e.object.material.name).focus()
             }}
         >
-            <mesh emissive={[0.5, 0.5, 0.5]} geometry={nodes.Plane013.geometry} material={materials.leather_mat} />
-            <mesh emissive={[0.5, 0.5, 0.5]} geometry={nodes.Plane013_1.geometry} material={materials.collar_padding_mat} />
-            <mesh emissive={[0.5, 0.5, 0.5]} geometry={nodes.Plane013_2.geometry} material={materials.sole_mat} />
-            <mesh emissive={[0.5, 0.5, 0.5]} geometry={nodes.Plane013_3.geometry} material={materials.insole_mat} />
-            <mesh emissive={[0.5, 0.5, 0.5]} geometry={nodes.Plane013_4.geometry} material={materials.stripes_mat} />
-            <mesh emissive={[0.5, 0.5, 0.5]} geometry={nodes.Plane013_5.geometry} material={materials.sew_mat} />
-            <mesh emissive={[0.5, 0.5, 0.5]} geometry={nodes.Plane013_6.geometry} material={materials.laces_mat} />
+            <mesh geometry={nodes.Plane013.geometry} material={materials.leather_mat} />
+            <mesh geometry={nodes.Plane013_1.geometry} material={materials.collar_padding_mat} />
+            <mesh geometry={nodes.Plane013_2.geometry} material={materials.sole_mat} />
+            <mesh geometry={nodes.Plane013_3.geometry} material={materials.insole_mat} />
+            <mesh geometry={nodes.Plane013_4.geometry} material={materials.stripes_mat} />
+            <mesh geometry={nodes.Plane013_5.geometry} material={materials.sew_mat} />
+            <mesh geometry={nodes.Plane013_6.geometry} material={materials.laces_mat} />
         </group>
     )
 }
 
-useGLTF.preload('https://models-kosoku-3d.s3.ap-south-1.amazonaws.com/shoes.glb')
+useGLTF.preload('https://models-kosoku-3d.s3.ap-south-1.amazonaws.com/shoes_c.glb')
