@@ -16,12 +16,14 @@ export function Model() {
 
     useFrame((state) => {
         const t = state.clock.getElapsedTime()
+        ref.current.rotation.y += 0.1;
+
         ref.current.rotation.set(
-            Math.cos(t / 4) / 8,
-            0,
+            Math.cos(t / 2) / 8,
+            Math.tan(t / 1.5) / 8,
             0.3
         )
-        ref.current.position.y = (0.04) + (Math.sin(t / 3)) / 80
+        ref.current.position.y = (0.16) + (Math.sin(t / 3)) / 50
     })
 
     useControls('Shoe', () => {
@@ -61,13 +63,13 @@ export function Model() {
                 document.getElementById('Shoe.' + e.object.material.name).focus()
             }}
         >
-            <mesh geometry={nodes.Plane013.geometry} material={materials.leather_mat} />
-            <mesh geometry={nodes.Plane013_1.geometry} material={materials.collar_padding_mat} />
-            <mesh geometry={nodes.Plane013_2.geometry} material={materials.sole_mat} />
-            <mesh geometry={nodes.Plane013_3.geometry} material={materials.insole_mat} />
-            <mesh geometry={nodes.Plane013_4.geometry} material={materials.stripes_mat} />
-            <mesh geometry={nodes.Plane013_5.geometry} material={materials.sew_mat} />
-            <mesh geometry={nodes.Plane013_6.geometry} material={materials.laces_mat} />
+            <mesh castShadow geometry={nodes.Plane013.geometry} material={materials.leather_mat} />
+            <mesh castShadow geometry={nodes.Plane013_1.geometry} material={materials.collar_padding_mat} />
+            <mesh castShadow geometry={nodes.Plane013_2.geometry} material={materials.sole_mat} />
+            <mesh castShadow geometry={nodes.Plane013_3.geometry} material={materials.insole_mat} />
+            <mesh castShadow geometry={nodes.Plane013_4.geometry} material={materials.stripes_mat} />
+            <mesh castShadow geometry={nodes.Plane013_5.geometry} material={materials.sew_mat} />
+            <mesh castShadow geometry={nodes.Plane013_6.geometry} material={materials.laces_mat} />
         </group>
     )
 }
