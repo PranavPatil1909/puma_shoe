@@ -1,9 +1,11 @@
+import { MeshReflectorMaterial } from '@react-three/drei'
+
 export default function Floor() {
     return (
         <mesh rotation-x={-Math.PI / 2} receiveShadow>
             <circleGeometry args={[2]} />
-            <meshStandardMaterial
-                
+         
+            <MeshReflectorMaterial
                 blur={[5, 5]} // Blur ground reflections (width, heigt), 0 skips blur
                 mixBlur={0.75} // How much blur mixes with surface roughness
                 mixStrength={0.5} // Strength of the reflections
@@ -16,14 +18,8 @@ export default function Floor() {
                 depthScale={50}
                 receiveShadow
                 metalness={0.9} roughness={0.9} />
-            {/* <meshPhysicalMaterial
-                color={'Grey'}
-                roughness={0.1}
-                metalness={0.5}
-                thickness={3.12}
-                ior={1.74}
-                transmission={0.8}
-            /> */}
+           
+            
         </mesh>
     )
 }
