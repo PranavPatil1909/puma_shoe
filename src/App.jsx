@@ -1,5 +1,8 @@
-import { Canvas } from '@react-three/fiber'
-import { OrbitControls, Environment, Reflector, ContactShadows } from '@react-three/drei'
+import { Canvas, extend } from '@react-three/fiber'
+import { OrbitControls, Environment, Reflector, meshReflectorMaterial } from '@react-three/drei'
+// extend({ Reflector });
+
+
 import { Model } from './Shoe'
 import Floor from './Floor'
 
@@ -12,11 +15,14 @@ export default function App() {
 
             <axesHelper args={[5]} />
             {/* <Floor  /> */}
-            {/* <ambientLight intensity={0.7} /> */}
+            <ambientLight intensity={0.7} />
+            {/* <meshReflectorMaterial ></meshReflectorMaterial> */}
+
+
             <Reflector
                 blur={[5, 5]} // Blur ground reflections (width, heigt), 0 skips blur
                 mixBlur={0.75} // How much blur mixes with surface roughness
-                  mixStrength={0.5} // Strength of the reflections
+                mixStrength={0.5} // Strength of the reflections
                 resolution={1000} // Off-buffer resolution, lower=faster, higher=better quality
                 args={[2, 2]} // PlaneBufferGeometry arguments
                 rotation={[-Math.PI * 0.5, 0, 0]}
@@ -30,7 +36,7 @@ export default function App() {
                     <Material metalness={0.9} roughness={0.9} {...props} />
                 )}
             </Reflector>
-            <spotLight intensity={0.2} angle={0.1} position={[0, 4.5, 0]} castShadow color={'white'} />
+            <spotLight intensity={0.5} angle={0.1} position={[0, 4.5, 0]} castShadow color={'white'} />
             <Model />
 
             {/* <ContactShadows
