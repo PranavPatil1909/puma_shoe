@@ -12,7 +12,12 @@ export default function App() {
         <Canvas shadows camera={{ position: [-0.3, 0.4, -0.4] }}>
             <Environment preset="lobby"
                 background
-            // blur={[0.1]}
+                // blur={[0.1]}
+                ground={{
+                    height: 15,
+                    radius: 115,
+                    scale: 100
+                }}
             />
 
             {/* <Environment preset="city" /> */}
@@ -20,16 +25,25 @@ export default function App() {
 
             {/* <axesHelper args={[5]} /> */}
             <Floor />
-            <ambientLight intensity={0.5}    />
+            <ambientLight intensity={0.5} />
 
 
 
-            <spotLight intensity={1.5} angle={0.1} position={[-9, 20, 6]} castShadow color={'white'} />
+            <spotLight
+                intensity={1.9} angle={0.1}
+                position={[-9, 9, 6]}
+                // position={[0, 2, 0]}
+
+                castShadow color={'white'} />
+           
             <Model />
 
 
 
-            <OrbitControls enableZoom={false} enablePan={false} />
+            <OrbitControls
+                enableZoom={false} enablePan={false}
+            />
+            
         </Canvas>
     )
 }
