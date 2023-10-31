@@ -20,7 +20,7 @@ export function Model() {
 
         ref.current.rotation.set(
             Math.cos(t / 2) / 8,
-            Math.tan(t / 1.5) / 8,
+            Math.sin(t / 1.5) / 3,
             0.3
         )
         ref.current.position.y = (0.16) + (Math.sin(t / 3)) / 50

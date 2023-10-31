@@ -15,6 +15,7 @@
     "react-dom": "18.2.0",
     "react-icons": "^4.11.0",
     "react-scripts": "5.0.1",
+    "react-spinners": "^0.13.8",
     "three": "^0.154.0",
     "valtio": "^1.11.2"
   },
