@@ -1,9 +1,10 @@
-
-import React, { useRef } from 'react'
+import React from 'react'
 import { useGLTF } from '@react-three/drei'
 
 export function Cabinet(props) {
-  const { nodes, materials } = useGLTF('https://models-kosoku-3d.s3.ap-south-1.amazonaws.com/MODA-7_Baked_Maps_Attached.glb')
+  const { nodes, materials } = useGLTF(
+    'https://models-kosoku-3d.s3.ap-south-1.amazonaws.com/MODA-7_Baked_Maps_Attached.glb'
+  )
   return (
     <group {...props} dispose={null}>
       <group position={[0, 1.067, -1.773]} scale={[1.745, 3.5, 0.25]}>
@@ -125,4 +126,6 @@ export function Cabinet(props) {
   )
 }
 
-useGLTF.preload('https://models-kosoku-3d.s3.ap-south-1.amazonaws.com/MODA-7_Baked_Maps_Attached.glb')
+useGLTF.preload(
+  'https://models-kosoku-3d.s3.ap-south-1.amazonaws.com/MODA-7_Baked_Maps_Attached.glb'
+)
