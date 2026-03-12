@@ -1,0 +1,21 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        # 1. Force Amplify to use a modern Node version (v20+)
+        - nvm use 20
+        # 2. Fix the "npm ci" mismatch error by running a standard install 
+        # to align package.json and package-lock.json
+        - npm install
+    build:
+      commands:
+        # 3. Run your standard build command
+        - npm run build
+  artifacts:
+    baseDirectory: build
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - node_modules/**/*
