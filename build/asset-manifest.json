@@ -1,13 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.e3a7a24e.css",
-    "main.js": "/static/js/main.31826322.js",
+    "main.css": "/static/css/main.82396385.css",
+    "main.js": "/static/js/main.c1cfe8c1.js",
+    "static/media/Rhombus.gif": "/static/media/Rhombus.9c7cd866c7fa25391ccd.gif",
     "index.html": "/index.html",
-    "main.e3a7a24e.css.map": "/static/css/main.e3a7a24e.css.map",
-    "main.31826322.js.map": "/static/js/main.31826322.js.map"
+    "static/media/Loader": "/static/media/Loader.1caa659b7f6d9a78339f",
+    "main.82396385.css.map": "/static/css/main.82396385.css.map",
+    "main.c1cfe8c1.js.map": "/static/js/main.c1cfe8c1.js.map"
   },
   "entrypoints": [
-    "static/css/main.e3a7a24e.css",
-    "static/js/main.31826322.js"
+    "static/css/main.82396385.css",
+    "static/js/main.c1cfe8c1.js"
   ]
 }

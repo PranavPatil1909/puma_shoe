@@ -9,14 +9,14 @@ import {
 } from '@react-three/drei'
 import { Suspense } from 'react'
 import { useState, CSSProperties } from 'react'
-import WasdControls from './Wasd-contorls'
+// import WasdControls from './Wasd-contorls'
 import Loading from './Loader'
 
 // extend({ Reflector });
 
-import { Model } from './Shoe'
-import Floor from './Floor'
-import { Spinner } from './Spinner'
+// import { Model } from './Shoe'
+// import Floor from './Floor'
+// import { Spinner } from './Spinner'
 import { Cabinet } from './cupboard'
 
 export default function App() {
@@ -32,12 +32,7 @@ export default function App() {
             backgroundBlurriness={1}
             backgroundIntensity={1}
             environmentRotation={[0, Math.PI / 2, 0]}
-            // blur={[0.1]}
-            // ground={{
-            //   height: 15,
-            //   radius: 115,
-            //   scale: 100
-            // }}
+           
           />
 
           {/* <Environment preset="city" /> */}
@@ -63,7 +58,7 @@ export default function App() {
           </group>
 
           <OrbitControls enableZoom={true} target={[0, 4, 0]} />
-          <WasdControls />
+          {/* <WasdControls /> */}
         </Suspense>
       </Canvas>
     </>

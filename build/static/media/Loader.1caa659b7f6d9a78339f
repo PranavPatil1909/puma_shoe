@@ -1,0 +1,14 @@
+import React, { Component } from 'react'
+import {
+  OrbitControls,
+  Environment,
+  Reflector,
+  MeshReflectorMaterial,
+  useProgress,
+  Html
+} from '@react-three/drei'
+ const { active, progress, errors, item, loaded, total } = useProgress()
+export default function Loading() {
+ 
+  return <Html center>{progress} % loaded</Html>
+}
